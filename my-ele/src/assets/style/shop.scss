@@ -15,27 +15,94 @@ a{
 li{
     list-style:none;
 }
+img{
+    border:none;
+}
 .shop-box{
 	width:100%; height:100%;
 	display:flex;
 	flex-direction:column;
 	.shop-top{
-		width:100%; height:1.09rem;
+		width:100%; 
+		height:auto;
 		background:skyblue;
 		.shop-top-T{
-		    width:100%; height:0.34rem;
-		    background:url(../images/bj.jpg) repeat-x;
+		    width:100%; height:0.68rem;
+		    background:#0086B3;
+//		    background:url(../images/bj.jpg) repeat-x;
 		    a{
 		        font-size:19px;
 		        color:#fff;
 		        display:block;
-		    }
+		        width:0.12rem;
+		    };
+		    .shop-top-imgbox{
+                width:100%; height:0.65rem;
+                display:flex;
+                justify-content: center;
+                img{
+                    width:0.65rem; height:0.65rem;
+                    background:red;
+                }
+            };
+            .shop-top-p{
+                text-align:center;
+                font-size:0.11rem;
+                color:#333;
+                .pp1{
+                    line-height:0.33rem;
+                    .p-sp2{
+                        font-size:0.21rem;
+                    }
+                };
+                .pp2{
+                    line-height:0.22rem;
+                    .pf{
+                        
+                    }
+                };
+                .pp3{
+                    color : #999;
+                    line-height:0.22rem;
+                };
+                .pp4{
+                    color : #999;
+                    line-height:0.22rem;
+                    border:1px solid #999;
+                    display:inline-block;
+                    .sd{
+                        display:inline-block;
+                        background:#70bc46;
+                        text-align:center;
+                        line-height: 0.14rem;
+                        color : #fff;
+                        font-size:0.09rem;
+                    }
+                };
+//              .pp4:after{
+//                  content: "";
+//                  display:block;
+//                  border:1px solid #999;
+//                  transform:scale(0.5);
+//                  width:100%;
+//              }
+            }
 		}
 	};
-	.shop-center{
-        width:100%; height:0.18rem;
-        background:red;
-    };
+//	.shop-center{
+//      width:100%; height:0.36rem;
+//      background:red;
+//  };
+
+.mint-navbar .mint-tab-item.is-selected{
+//  border:none;
+};
+.mint-tab-item-label{
+//  border-bottom:3px solid #2395ff;
+}
+
+
+
 //	.shop-bottom{
 //	    width:100%; height:1.09rem;
 //	    background:black;
