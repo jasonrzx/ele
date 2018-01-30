@@ -1,21 +1,23 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import Findlist from '@/components/Findlist'
+import shop from '@/components/shop'
 
 Vue.use(Router)
 
 export default new Router({
-  routes: [
+	mode : "hash",
+	 routes: [
     {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
-    {
-    	path: '/Findlist',
+      path: '/Findlist',
       name: 'Findlist',
       component: Findlist
+    },
+	{
+    	path : '/shop',
+    	name : 'shop',
+    	component : shop
+
     }
   ]
 })

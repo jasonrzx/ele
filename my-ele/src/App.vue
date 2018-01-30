@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-  
+
     <router-view/>
   </div>
 </template>
@@ -9,22 +9,16 @@
 </script>
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  
+  boforeCreate:function(){
+		var rempx = document.documentgetElement.clentWidth / 6.4;
+		document.getElementsByTagName("html")[0].style.fontSize = rempx + "px";
+	}
+  
 }
 </script>
 
 <style>
-	*{
-  	margin: 0;
-  	padding: 0;
-  }
-  li{
-  	list-style: none;
-  }
-  a{
-  	text-decoration: none;
-  }
-#app {
-  
-}
+
 </style>

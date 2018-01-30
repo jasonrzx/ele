@@ -12,6 +12,11 @@
   "dependencies": {
     "axios": "^0.17.1",
     "mint-ui": "^2.2.13",
+<<<<<<< HEAD
+=======
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+>>>>>>> 823ff983dd1d3c8f24638f1ba75783ddc7879baf
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
