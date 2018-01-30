@@ -1,16 +1,24 @@
 <template>
   <div id="app">
+    
     <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  
+  boforeCreate:function(){
+		var rempx = document.documentgetElement.clentWidth / 6.4;
+		document.getElementsByTagName("html")[0].style.fontSize = rempx + "px";
+	}
+  
 }
 </script>
 
 <style>
+<<<<<<< HEAD
 @import './assets/iconfont/iconfont.css';
 html,body,div,nav,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,fieldset,legend,img,input,textarea,figure,i,a,footer{margin:0;padding:0;}
 *{box-sizing:border-box;}
@@ -31,4 +39,7 @@ body{
   display: flex;
   flex-direction: column;
 }
+=======
+
+>>>>>>> ea8312ef101c0b8673d1aad75bdf37c0754d540c
 </style>
