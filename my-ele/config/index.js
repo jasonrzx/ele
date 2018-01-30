@@ -11,19 +11,11 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-<<<<<<< HEAD
-    		'/restapi': {//这里是需要匹配的路径，如果匹配上了，则代理到目标服务器上
-            target: 'https://h5.ele.me', //目标服务器
-            changeOrigin: true, //开启代理
-            pathRewrite: { '^/restapi': '/restapi' }  //对访问路径进行替换操作
-       }
-=======
         '/restapi': {//这里是需要匹配的路径，如果匹配上了，则代理到目标服务器上
             target: 'https://h5.ele.me', //目标服务器
             changeOrigin: true, //开启代理
             pathRewrite: { '^/restapi': '/restapi' }  //对访问路径进行替换操作
         }
->>>>>>> d7b9aed2082535637e633702af6440f411ee2112
     },
 
     // Various Dev Server settings

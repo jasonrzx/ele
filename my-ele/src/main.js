@@ -3,6 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import MainFooter from './components/MainFooter'
+
+Vue.component("MainFooter", MainFooter)
 
 Vue.config.productionTip = false
 
