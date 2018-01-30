@@ -11,7 +11,9 @@ import Swiper from 'swiper';
 export default {
 	name: "MainSlideshow",
 	data() {
-		mainlist: []
+		return{
+			mainlist: []
+		}	
 	}
 }
 </script>
