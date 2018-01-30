@@ -10,7 +10,18 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+    		'/restapi': {//这里是需要匹配的路径，如果匹配上了，则代理到目标服务器上
+            target: 'https://h5.ele.me', //目标服务器
+            changeOrigin: true, //开启代理
+            pathRewrite: { '^/restapi': '/restapi' }  //对访问路径进行替换操作
+       },
+       '/': {//这里是需要匹配的路径，如果匹配上了，则代理到目标服务器上
+            target: 'https://fuss10.elemecdn.com', //目标服务器
+            changeOrigin: true, //开启代理
+            pathRewrite: { '^/': '/' }  //对访问路径进行替换操作
+       },
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
