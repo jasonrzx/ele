@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    
+
     <router-view/>
   </div>
 </template>
@@ -17,8 +17,7 @@ export default {
 }
 </script>
 
-<style>
-<<<<<<< HEAD
+<style> 
 @import './assets/iconfont/iconfont.css';
 html,body,div,nav,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,fieldset,legend,img,input,textarea,figure,i,a,footer{margin:0;padding:0;}
 *{box-sizing:border-box;}
@@ -37,9 +36,6 @@ html,body{
 }
 body{
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
 }
-=======
-
->>>>>>> ea8312ef101c0b8673d1aad75bdf37c0754d540c
 </style>
