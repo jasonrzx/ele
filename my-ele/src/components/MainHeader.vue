@@ -2,7 +2,10 @@
 	<header id="mainheader">
 		<div class="map">
 			<div class="mapp">
-				<span>{{map}}</span>
+				<a class="mapa">
+					<i class="icon iconfont iconlocation">&#xe63c;</i>
+					<span class="mapspan">{{map}}</span>
+				</a>
 			</div>
 		</div>
 		<div class="shopper">
@@ -26,42 +29,44 @@ export default {
 		}
 	},
 	mounted(){
-		// //百度定位
-		// var geoc = new BMap.Geocoder();
-		// var geolocation = new BMap.Geolocation();
-		// geolocation.getCurrentPosition(function(r){
-		// 	if(this.getStatus() == BMAP_STATUS_SUCCESS){
-		// 		geoc.getLocation(r.point, function(rs){
-		// 			var addComp = rs.addressComponents;
-		// 			var mainmap = addComp.district + addComp.city;
-		// 			var map = document.getElementsByClassName("map")[0];
-		// 			console.log(map)
-		// 			map.innerHtml = mainmap;
-		// 			console.log(mainmap)
-		// 		});   
+		//百度定位
+		var geoc = new BMap.Geocoder();
+		var geolocation = new BMap.Geolocation();
+		geolocation.getCurrentPosition(function(r){
+			if(this.getStatus() == BMAP_STATUS_SUCCESS){
+				geoc.getLocation(r.point, function(rs){
+					var addComp = rs.addressComponents;
+					var mainmap = addComp.district + addComp.city + addComp.street;
+					var map = document.getElementsByClassName("mapspan")[0];
+					// console.log(addComp)
+					map.innerText = mainmap;
+					//console.log(mainmap)
+				});   
 				
-		// 	}
-		// 	else {
-		// 		alert('failed'+this.getStatus());
-		// 	}        
-		// },{enableHighAccuracy: true})
+			}
+			else {
+				alert('failed'+this.getStatus());
+			}        
+		},{enableHighAccuracy: true})
 	}
 }
 </script>
 
 <style scoped>
 	.map{
-		padding: 0 0.2322rem;
+		padding: 0.13rem 0.2322rem;
 		background-image: linear-gradient(left,#0af,#0085ff);
 		color: #000;
-		font-size: 36px;
+		font-size: 0.3rem;
 		color: #fff;
 	}
-	
-	.mapp>span{
+	.mapp>a>span{
 		display: inline-block;
 		height: 0.62rem;
 		width: 100%;
+		margin: 0 0.35rem;
+		line-height: 0.75rem;
+		font-weight: 700;
 	}
 	.shopper{
 		position: sticky;
@@ -88,5 +93,16 @@ export default {
 		margin-right: 0.1rem;
 		font-size: 0.25rem;
 		font-weight: 700;
+	}
+	.iconlocation{
+		float: left;
+		font-size: 0.27rem;
+		position: absolute;
+		top: 0.23rem;
+	}
+	.mapa{
+		display: flex;
+		justify-content: space-between;
+		position: relative;
 	}
 </style>

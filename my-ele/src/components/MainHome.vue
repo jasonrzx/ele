@@ -7,6 +7,9 @@
 			<MainSlideshow></MainSlideshow>
 		</div>
 		<div>
+			<MainSection></MainSection>
+		</div>
+		<div>
 			<MainFooter></MainFooter>
 		</div>
 	</div>
@@ -15,12 +18,14 @@
 <script>
 import MainHeader from './MainHeader'
 import MainFooter from './MainFooter'
+import MainSection from './MainSection'
 import MainSlideshow from './MainSlideshow'
 export default {
 	name: "MainHome",
 	components: {
 		MainHeader,
 		MainSlideshow,
+		MainSection,
 		MainFooter
 	}
 }
