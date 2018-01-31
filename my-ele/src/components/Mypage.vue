@@ -23,7 +23,60 @@
    	  		<span>金币</span>
    	  	</li>
    	  </ul>
+
   </div>
+
+   	  <div class="my-location">
+   	  	<p>
+   	  		<span><i class="icon iconfont icon-dw">&#xe610;</i></span>
+   	  		<span>我的地址</span>
+   	  	</p>
+   	  	<span>></span>
+   	  </div>
+   	  <ol>
+   	  	<li>
+   	  		<dl>
+   	  			<dt><span><i class="icon iconfont icon-jbsc">&#xe613;</i></span></dt>
+   	  			<dd>
+   	  				<span>金币商城</span>
+   	  				<span>></span>
+   	  			</dd>
+   	  		</dl>
+   	  	</li>
+   	  	<li>
+   	  		<dl>
+   	  			<dt><span><i class="icon iconfont icon-fx">&#xe602;</i></span></dt>
+   	  			<dd>
+   	  				<span>分享拿5元现金</span>
+   	  				<span>></span>
+   	  			</dd>
+   	  		</dl>
+   	  	</li>
+   	  </ol>
+   	  <ol>
+   	  	<li>
+   	  		<dl>
+   	  			<dt><span><i class="icon iconfont icon-kf">&#xe7e0;</i></span></dt>
+   	  			<dd>
+   	  				<span>我的客服</span>
+   	  				<span>></span>
+   	  			</dd>
+   	  		</dl>
+   	  	</li>
+   	  	<li>
+   	  		<dl>
+   	  			<dt><span><i class="icon iconfont icon-elm">&#xe722;</i></span></dt>
+   	  			<dd>
+   	  				<span>下载饿了么App</span>
+   	  				<span>></span>
+   	  			</dd>
+   	  		</dl>
+   	  	</li>
+   	  </ol>
+   	  <MainFooter></MainFooter>
+  </div>
+  
+
 </template>
 
 <script>
@@ -32,81 +85,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.my-page{
-	width: 100%;
-	overflow: hidden;
-}
-.n-top{
-		width: 100%;
-		display: flex;
-		font-size:20px;
-		height: 0.8rem;
-		background: #0085ff;
-		line-height: 0.8rem;
-		justify-content: space-between;
-		color: #fff;
-		border-bottom: 1px solid #fff;
-}
-.n-top>span:nth-of-type(1){
-	margin-left: 0.5rem;
-}
-.n-top>span:nth-of-type(2){
-	margin-right: 2.8rem;
-}
+<style scoped src="../assets/style/mypage.css">
 
-.nav-top{
-	font-size: 10px;
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	height: 1.88rem;
-	padding: 0 0.2rem;
-	align-items: center;
-	background: #0085ff;
-	color: #fff;
-}
-.nav-top>dl{
-	display: flex;
-}
-.nav-top>dl>dt{
-	padding-right: 0.2rem;
-}
-.nav-top>dl>dt>span>.icon-user{
-	font-size: 45px;
-	color: #fff;
-	background: #999;
-	border-radius: 50%;
-}
-.nav-top>dl>dd>h4{
-	font-size: 20px;
-	font-weight: bold;
-}
-.nav-top>dl>dd>span{
-	font-size: 10px;
-}
-
-.my-page>ul{
-	width: 100%;
-	display: flex;
-	flex: 2;
-	font-size: 12px;
-}
-.my-page>ul>li{
-	flex: 1;
-	height: 1.43rem;
-	display: flex;
-	justify-content: center;
-	text-align: center;
-	flex-direction:column ;
-}
-.my-page>ul>li:nth-of-type(1)>span:nth-of-type(1){
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
-}
-.my-page>ul>li:nth-of-type(2)>span:nth-of-type(2){
-	
-}
 </style>
