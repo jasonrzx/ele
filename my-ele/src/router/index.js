@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Findlist from '@/components/Findlist'
 import MainHome from '@/components/MainHome'
 import shop from '@/components/shop'
+import Mypage from '@/components/Mypage'
 
 Vue.use(Router)
 
@@ -23,6 +24,11 @@ export default new Router({
     	path: '/shop',
      	name: 'shop',
       	component: shop
-    }
+    },
+    {
+    	path: '/Mypage',
+     	name: 'Mypage',
+      	component: Mypage
+    },
   ]
 })
