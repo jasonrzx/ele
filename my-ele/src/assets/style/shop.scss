@@ -1,54 +1,52 @@
+/*.wrapper {
+    height: 100%;
+    
+}*/
 
 .shop-box{
+    font-size:0.24rem;
 	width:100%; height:100%;
+    overflow-y: auto;
 	display:flex;
 	flex-direction:column;
 	.shop-top{
-		width:100%; 
-		height:auto;
+		width:100%; height: 3.76rem;
 		background:skyblue;
 		.shop-top-T{
-		    width:100%; height:0.68rem;
+		    width:100%; height:1.16rem;
 		    background:#0086B3;
-//		    background:url(../images/bj.jpg) repeat-x;
+/*//		    background:url(../images/bj.jpg) repeat-x;*/
 		    a{
 		        font-size:19px;
 		        color:#fff;
 		        display:block;
-		        width:0.12rem;
+		        width:0.18rem;
 		    };
 		    .shop-top-imgbox{
-                width:100%; height:0.65rem;
+                width:100%; height:1.1rem;
                 display:flex;
                 justify-content: center;
                 img{
-                    width:0.65rem; height:0.65rem;
+                    width:1.1rem; height:1.1rem;
                     background:red;
                 }
             };
             .shop-top-p{
                 text-align:center;
-                font-size:0.11rem;
+                font-size:0.20rem;
                 color:#333;
+                line-height: 0.4rem;
                 .pp1{
-                    line-height:0.33rem;
+                    line-height:0.6rem;
                     .p-sp2{
-                        font-size:0.21rem;
-                    }
-                };
-                .pp2{
-                    line-height:0.22rem;
-                    .pf{
-                        
+                        font-size:0.32rem;
                     }
                 };
                 .pp3{
                     color : #999;
-                    line-height:0.22rem;
                 };
                 .pp4{
                     color : #999;
-                    line-height:0.22rem;
                     border:1px solid #999;
                     display:inline-block;
                     .sd{
@@ -60,33 +58,63 @@
                         font-size:0.09rem;
                     }
                 };
-//              .pp4:after{
-//                  content: "";
-//                  display:block;
-//                  border:1px solid #999;
-//                  transform:scale(0.5);
-//                  width:100%;
-//              }
             }
 		}
 	};
-//	.shop-center{
-//      width:100%; height:0.36rem;
-//      background:red;
-//  };
-
-.mint-navbar .mint-tab-item.is-selected{
-//  border:none;
+    .shop-center-bottom{
+        width:100%;
+        .shop-center{
+            width:100%; height:0.6rem;
+            display:flex;
+            border-bottom:0.01rem solid #e5e5e5;
+            /*position:fixed;*/
+            li{
+                text-align: center;
+                line-height: 0.6rem;
+                width:33.33333%; height:100%;
+                .spans{
+                    display:inline-block;
+                    height:100%;
+                    border-bottom:0.04rem solid #2395ff;
+                };
+            };
+        };
+        .shop-bottom{
+            width:100%; height:100%;
+            .shop-bottom-dc{
+                width:100%; height:100%;
+                display:flex;
+                .shop-bottom-dc-lf{
+                    width:1.32rem; height:100%;
+                    overflow-y:auto;
+                    ul{
+                        width:100%; height:100%;
+                        overflow-y:auto;
+                        li{
+                            width:100%; height:0.84rem;
+                            border-top:0.02rem solid #eee;
+                            font-size:0.2rem;
+                            text-align: center;
+                            line-height:0.84rem;
+                        }
+                    };
+                    .shop-botton-shop{
+                        width:100%; height:0.8rem;
+                        background:#505051;
+                        position:fixed;
+                        left:0; bottom:0;
+                    }
+                };
+                .shop-bottom-dc-rgh{
+                    height:100%;
+                    overflow-y:auto;
+                    background:black;
+                    flex:1;
+                }
+            };
+        };
+    }
 };
-.mint-tab-item-label{
-//  border-bottom:3px solid #2395ff;
+.shop-box::-webkit-scrollbar {/*隐藏滚轮*/
+    display: none;
 }
-
-
-
-//	.shop-bottom{
-//	    width:100%; height:1.09rem;
-//	    background:black;
-//	}
-}
-

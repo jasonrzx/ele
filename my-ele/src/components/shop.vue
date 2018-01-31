@@ -6,7 +6,7 @@
 			<!--iconfont标签-->
 			<div class="shop-top-T">
 				<router-link to="/">
-					<i class="icon iconfont">&#xe697;</i>
+					<i class="lt">&lt;</i>
 				</router-link>
 				<!--商店logo-->
 				<div class="shop-top-imgbox"><img /></div>
@@ -23,32 +23,46 @@
 			</div>
 		</div>
 		<!--选项卡区域   点餐 评价 商家-->
-		<!--使用mint-ui插件-->
-			<!--<mt-navbar v-model="selected">
-			  <mt-tab-item id="1">选项一</mt-tab-item>
-			  <mt-tab-item id="2">选项二</mt-tab-item>
-			  <mt-tab-item id="3">选项三</mt-tab-item>
-			</mt-navbar>-->
-		<!--底部区域、点击选项卡切换不同的内容-->
-		<div class="shop-bottom">
-			<mt-tab-container v-model="selected">
-			  <mt-tab-container-item id="1">
-			  	<div class="shop-bottom-t">
-			  		<div class="shop-bottom-t1"></div>
-			  		<div class="shop-bottom-t2">
-			  			<span class="shop-left"></span>
-			  			<div class="shop-center"></div>
-			  			<a class="shop-right"></a>
-			  		</div>
-			  	</div>
-			  </mt-tab-container-item>
-			  <mt-tab-container-item id="2">
-			  	asdf
-			  </mt-tab-container-item>
-			  <mt-tab-container-item id="3">
-			  	asdg
-			  </mt-tab-container-item>
-			</mt-tab-container>
+		<div class="shop-center-bottom">
+			<ul class="shop-center">
+				<li v-for="(item,index) in items" @click.stop="tabs(index)">
+					<span :class="{spans:flage==index}" >{{item.message}}</span>
+				</li>
+			</ul>
+			<!-- 底部区域 -->
+			<div class="shop-bottom">
+				<!-- 点餐区域 -->
+				<div class="shop-bottom-dc" v-if="flage==0">
+					<!-- 点餐模块左边区域 -->
+					<div class="shop-bottom-dc-lf">
+						<ul>
+							<li v-for="(side,index) in sidebar">{{side}}</li>
+						</ul>
+						<!-- 底部固定区域 -->
+						<div class="shop-botton-shop">
+							<span class="shoping"></span>
+							<div class="ps">
+								<span class="jg">￥</span>
+								<span class="psf">配送费</span>
+							</div>
+							<div class="qs">￥<span class="qs1"></span>配送</div>
+						</div>
+					</div>
+					<!-- 点餐模块右边区域 -->
+					<div class="shop-bottom-dc-rgh">
+						<p class="shop-rgh-p"><span>热销</span></p>
+						<dl v-for="">
+							<dt></dt>
+							<dd></dd>
+							<dd>
+								
+							</dd>
+						</dl>
+					</div>
+				</div>
+				<div class="shop-bottom-pj" v-if="flage==1"></div>
+				<div class="shop-bottom-sj" v-if="flage==2"></div>
+			</div>
 		</div>
 	</div>
 </template>

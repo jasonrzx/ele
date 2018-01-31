@@ -29,8 +29,6 @@ export default {
 	name: "MainSlideshow",
 	data() {
 		return{
-<<<<<<< HEAD
-			mainlist: [],
 			mainlistone: [],
 			mainlisttwo: [],
 			slidebox: ""
@@ -78,11 +76,8 @@ export default {
 			var ret = (c.substring(c.length-2)=='eg')? ".jpeg":".png"
 			var result = "https://fuss10.elemecdn.com"+c+ret;
 			return(result);
-=======
-			mainlist: []
->>>>>>> 51914a3a65896104b737bc7b97ce33e5521fc2eb
-		}
-	}
+		}	
+	}	
 }
 </script>
 
