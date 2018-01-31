@@ -13,7 +13,11 @@ export default {
 	data() {
 		return{
 			mainlist: []
+<<<<<<< HEAD
 		}	
+=======
+		}
+>>>>>>> 51914a3a65896104b737bc7b97ce33e5521fc2eb
 	}
 }
 </script>

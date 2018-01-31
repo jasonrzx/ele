@@ -27,6 +27,5 @@ export default {
 		var wh = document.documentElement.clientHeight;
 		var xxk = document.getElementsByClassName("shop-center-bottom")[0]
 		xxk.style.height = wh+"px";
-		console.log(xxk)
 	}
 }
