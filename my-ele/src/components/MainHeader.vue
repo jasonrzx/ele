@@ -8,7 +8,7 @@
 				</a>
 			</div>
 		</div>
-		<div class="shopper">
+		<div class="shopper" :class="searchBarFixed == true ? 'isFixed' :''">
 			<div class="shop">
 				<a>
 					<i class="icon iconfont iconmain">&#xe6ac;</i>
@@ -25,7 +25,8 @@ export default {
 	data(){
 		return{
 			map: "",
-			shopper: "搜索商家、商品名称"
+			shopper: "搜索商家、商品名称",
+			searchBarFixed: false
 		}
 	},
 	mounted(){
@@ -47,7 +48,22 @@ export default {
 			else {
 				alert('failed'+this.getStatus());
 			}        
-		},{enableHighAccuracy: true})
+		},{enableHighAccuracy: true});
+
+		//吸顶效果
+		window.addEventListener("scroll", this.handleScroll);
+	},
+	methods: {
+		handleScroll() {
+			var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+			//console.log(scrollTop);
+			var offsetTop = document.getElementsByClassName("shopper")[0].offsetTop;
+			if(scrollTop > offsetTop){
+				this.searchBarFixed = true
+			} else {
+				this.searchBarFixed = false
+			}
+		}
 	}
 }
 </script>
@@ -69,12 +85,20 @@ export default {
 		font-weight: 700;
 	}
 	.shopper{
-		position: sticky;
+		position: relative;
 		top: 0;
 		z-index: 999;
+		width: 100%;
 		background-image: linear-gradient(left,#0af,#0085ff);
 		font-size: 20px;
 	}
+	.isFixed{
+	    position:fixed;
+	    top: 0;
+	    background-image: linear-gradient(left,#0af,#0085ff);
+	    width: 100%;
+	    z-index:999;
+	  }
 	.shop{
 		padding: 0.13rem 0.2322rem;
 	}

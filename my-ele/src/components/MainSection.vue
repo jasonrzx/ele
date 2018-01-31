@@ -4,8 +4,9 @@
 			<img src="https://fuss10.elemecdn.com/3/c8/45b2ec2855ed55d90c45bf9b07abbpng.png?imageMogr/format/webp/thumbnail/!710x178r/gravity/Center/crop/710x178/">
 		</div>
 		<div class="shoplist-title">{{business}}</div>
+		
 		<div class="shoplist">
-			<div class="shop-listcontent" v-for="item in buslists">
+			<div class="shop-listcontent" v-for="item in buslists" @click="jump(item.id)">
 				<div class="shop-every">
 					<div class="shop-img"><img :src="item.restaurant.image_path"></div>
 					<div class="shop-details">
@@ -38,21 +39,24 @@
 				</div>
 			</div>
 		</div>
+		
 	</section>
 </template>
 
 <script>
-import axios from 'axios'; 
+import axios from 'axios';
+import { Loadmore } from 'mint-ui'; 
 export default {
 	name: "MainSection",
 	data(){
 		return{
 			business: "推荐商家",
-			buslists: []
+			buslists: [],
+			page: 0
 		}
 	},
 	mounted(){
-		axios.get('/restapi/shopping/v3/restaurants?latitude=39.90469&longitude=116.407173&offset=0&limit=8&extras[]=activities&extras[]=tags&extra_filters=home&rank_id=e3f3c3f8aceb47f99b78130161d25723&terminal=h1')
+		axios.get(`/restapi/shopping/v3/restaurants?latitude=39.90469&longitude=116.407173&offset=${this.page+1}&limit=8&extras[]=activities&extras[]=tags&extra_filters=home&rank_id=e3f3c3f8aceb47f99b78130161d25723&terminal=h1`)
 		.then((response)=> {
 		    console.log(response);
 		    this.buslists = response.data.items;
@@ -63,7 +67,7 @@ export default {
 		    	// 	this.buslists[i].restaurant.delivery_mode.text = null;
 		    	// }
 		    }
-
+		    window.addEventListener("scroll", this.bomScroll);
 		})
 		.catch(function (response) {
 		    console.log(response);
@@ -75,21 +79,39 @@ export default {
 			var s1 = str.substring(0,index);
 			var s2 = str.substring(index,str.length);
 			var nstr = s1+sr+s2;
-			return(nstr)
+			return(nstr);
 		},
 		splace : function (s){
-			var a = this.stu(s,"\/",0)
-			var b= this.stu(a,"\/",2)
-			var c = this.stu(b,"\/",5)
-			var ret = (c.substring(c.length-2)=='eg')? ".jpeg":".png"
+			var a = this.stu(s,"\/",0);
+			var b= this.stu(a,"\/",2);
+			var c = this.stu(b,"\/",5);
+			var ret = (c.substring(c.length-2)=='eg')? ".jpeg":".png";
 			var result = "https://fuss10.elemecdn.com"+c+ret;
 			return(result);
+		},
+		jump: function(id){
+			this.$router.history.push({name:'shop', params:{fid: id}})
+		},
+		loadBottom() {
+			//...// 加载更多数据
+			//this.allLoaded = true;// 若数据已全部获取完毕
+			this.$refs.loadmore.onBottomLoaded();
 		}
+		// bomScroll: function(){
+		// 	var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+		// 	var top = scrollTop-10;
+		// 	if(scrollTop > top){
+		// 		this.look();
+		// 	}
+		// }
 	}
 }
 </script>
 
 <style scoped>
+	#mainsection{
+		background: #fff;
+	}
 	.newuser{
 		padding: 0 0.18rem;
 		height: 1.6rem;
