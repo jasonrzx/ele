@@ -68,9 +68,13 @@ export default {
   	.then((res)=>{
   		console.log(res);	
   			var list4 = res.data; 
-  			for(var i=0;i<3;i++){
-  					list4[i].image_hash= this.splace(list4[i].image_hash);
-  					list4.length = 3;
+  			var l=list4.length;
+  		if(l>=3){
+  				l = 3;
+  				for(var i=0;i<l;i++){
+  					list4[i].image_hash= this.splace(list4[i].image_hash);	
+  				}
+  				list4.length=3;	
   			}	
   			this.lists4 = list4;
   			console.log(this.lists4)

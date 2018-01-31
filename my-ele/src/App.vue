@@ -35,9 +35,10 @@ img{
 html,body{
   width:100%;
   height:100%;
+  background: #eee; 
 }
 body{
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
 </style>
