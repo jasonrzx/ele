@@ -26,7 +26,9 @@
 			   		  				<dd>{{item.food.name}}</dd>
 			   		  				<dd><span>月售{{item.food.month_sales}}份</span><span>好评率{{item.food.satisfy_rate}}%</span></dd>
 			   		  				<dd><span>￥{{item.food.price}}</span>
-			   		  					<s v-if="flag" >{{item.food.original_price}}</s><span v-if="fg" ref="spp">{{item.food.discount_activity}}</span></dd>
+			   		  					<s v-if="flag" >{{item.food.original_price}}</s>
+			   		  					<span v-if="fg">{{item.food.discount_activity}}</span>
+			   		  				</dd>
 			   		  				<dd>{{item.food.restaurant_name}}</dd>
 			   		  			</dl>
    		  				</li>

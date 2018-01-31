@@ -41,4 +41,8 @@ body{
   display: flex;
   flex-direction: column;
 }
+#app{
+	 width:100%;
+   height:100%;
+}
 </style>

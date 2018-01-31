@@ -4,6 +4,7 @@ import Findlist from '@/components/Findlist'
 import MainHome from '@/components/MainHome'
 import shop from '@/components/shop'
 import Mypage from '@/components/Mypage'
+import Orderlist from '@/components/Orderlist'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
     	path: '/Mypage',
      	name: 'Mypage',
       	component: Mypage
+    },
+    {
+    	path: '/Orderlist',
+     	name: 'Orderlist',
+      	component: Orderlist
     },
   ]
 })
