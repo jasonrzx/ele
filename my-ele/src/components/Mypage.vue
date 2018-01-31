@@ -23,6 +23,7 @@
    	  		<span>金币</span>
    	  	</li>
    	  </ul>
+<<<<<<< HEAD
    	  <div class="my-location">
    	  	<p>
    	  		<span><i class="icon iconfont icon-dw">&#xe610;</i></span>
@@ -137,6 +138,8 @@ export default {
 	margin-top: 0.1rem;
 	font-size: 10px;
 	display: block; 
+	font-size: 10px;
+
 }
 
 .my-page>ul{
@@ -226,5 +229,14 @@ export default {
 }
 .my-page>ol>li:nth-of-type(1)>dl>dd{
 	border-bottom: 1px solid #eee;
+	text-align: center;
+	flex-direction:column ;
+}
+.my-page>ul>li:nth-of-type(1)>span:nth-of-type(1){
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+}
+.my-page>ul>li:nth-of-type(2)>span:nth-of-type(2){
 }
 </style>
