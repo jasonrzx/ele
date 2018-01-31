@@ -23,6 +23,9 @@
    	  		<span>金币</span>
    	  	</li>
    	  </ul>
+
+  </div>
+
    	  <div class="my-location">
    	  	<p>
    	  		<span><i class="icon iconfont icon-dw">&#xe610;</i></span>
@@ -73,6 +76,7 @@
    	  <MainFooter></MainFooter>
   </div>
   
+
 </template>
 
 <script>
@@ -81,7 +85,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped src="../assets/style/mypage.css">
 
 </style>

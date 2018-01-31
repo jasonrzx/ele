@@ -22,9 +22,9 @@ export default new Router({
       component: Findlist
     },
     {
-    	path: '/shop',
-     	name: 'shop',
-      	component: shop
+      path: '/shop',
+      name: 'shop',
+      component: shop
     },
     {
     	path: '/Mypage',
