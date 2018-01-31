@@ -9,10 +9,20 @@ Vue.use(Router)
 export default new Router({
 	mode : "hash",
 	 routes: [
+	{
+      path: '/',
+      name: 'MainHome',
+      component: MainHome
+    },
     {
       path: '/Findlist',
       name: 'Findlist',
       component: Findlist
     },
+    {
+    	path: '/shop',
+     	name: 'shop',
+      	component: shop
+    }
   ]
 })
