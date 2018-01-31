@@ -76,7 +76,7 @@ export default {
 			var ret = (c.substring(c.length-2)=='eg')? ".jpeg":".png"
 			var result = "https://fuss10.elemecdn.com"+c+ret;
 			return(result);
-		}	
+		}
 	}	
 }
 </script>
