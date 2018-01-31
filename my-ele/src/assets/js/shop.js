@@ -8,18 +8,44 @@ export default {
 	data : function(){
 		return {
 			flage : "0",
+			detail : null,
+			name : "",
+			description : "",
+			data_il : null,
+			detail_s : "",
+			img : [],
 			items :[
 				{message : "点餐"},
 				{message : "评价"},
 				{message : "商家"}
 			],
-			sidebar :["热销","优惠","优惠套餐","精选套餐","精选套餐","单点主餐","甜品小食","配餐小食","串点","汤饮","日式煮锅"]
+			sidebar :["热销","优惠","优惠套餐","精选套餐","精选套餐","单点主餐","甜品小食","配餐小食","串点","汤饮","日式煮锅"],
+
+			//头部反向代理定义的变量
+			list : null,
+			list1 : null,
+			imgs : [],
 		}
 	},
 
 	methods : {
 		tabs: function(index){
 			this.flage = index;
+		},
+  		 stu: function  (str,sr,index){
+				var nstr = "";
+				var s1 = str.substring(0,index);
+				var s2 = str.substring(index,str.length);
+				var nstr = s1+sr+s2;
+				return(nstr)
+		},
+		splace : function (s){
+			var a = this.stu(s,"\/",0)
+			var b= this.stu(a,"\/",2)
+			var c = this.stu(b,"\/",5)
+			var ret = (c.substring(c.length-2)=='eg')? ".jpeg":".png"
+			var result = "https://fuss10.elemecdn.com"+c+ret;
+			return(result);
 		}
 	},
 
@@ -27,5 +53,42 @@ export default {
 		var wh = document.documentElement.clientHeight;
 		var xxk = document.getElementsByClassName("shop-center-bottom")[0]
 		xxk.style.height = wh+"px";
+
+		var shop_bottom = $(".shop-bottom");
+		var shop_center_h = $(".shop-center").height();
+		shop_bottom.css({"height":wh-shop_center_h});
+		$(".shop-bottom-dc").height(wh-shop_center_h);
+
+		var id = this.$route.params.fid;
+		axios.get(`/restapi/shopping/restaurant/${id}?extras[]=activities&extras[]=albums&extras[]=license&extras[]=identification&extras[]=qualification&terminal=h5&latitude=39.90469&longitude=116.407173`)
+		.then((res)=>{
+			console.log(res);
+			this.list = res.data;
+			this.list1 = res.data.activities;
+			console.log(this.list1);
+			var ss = res.data.image_path;
+			this.imgs.push(this.splace(ss))
+			console.log(this.imgs)
+		});
+
+
+
+		axios.get(`/restapi/shopping/v2/menu?restaurant_id=${id}`).then((res)=>{
+			this.data_il = res.data;
+			this.detail = res.data[0].foods;
+
+			var ind = this.detail.length;
+			this.name = res.data[0].name;
+			this.description = res.data[0].description;
+
+			var length = res.data[0].foods.length;
+			for(var i=0; i<length; i++){
+				var s = res.data[0].foods[i].image_path;
+				this.img.push(this.splace(s));
+			}
+		}).catch((err)=>{
+			console.log(err);
+		});
+
 	}
 }

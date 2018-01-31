@@ -14,5 +14,10 @@ export default new Router({
       name: 'Findlist',
       component: Findlist
     },
+    {
+      path: '/shop',
+      name: 'shop',
+      component: shop
+    },
   ]
 })
