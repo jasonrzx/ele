@@ -24,7 +24,7 @@
    	  	</li>
    	  </ul>
 
-  </div>
+ 
 
    	  <div class="my-location">
    	  	<p>

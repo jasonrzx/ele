@@ -6,7 +6,7 @@
 		<div class="shoplist-title">{{business}}</div>
 		
 		<div class="shoplist">
-			<div class="shop-listcontent" v-for="item in buslists" @click="jump(item.id)">
+			<div class="shop-listcontent" v-for="item in buslists" @click="jump(item.restaurant.id)">
 				<div class="shop-every">
 					<div class="shop-img"><img :src="item.restaurant.image_path"></div>
 					<div class="shop-details">
