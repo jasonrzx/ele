@@ -5,7 +5,8 @@
 		</div>
 		<div class="shoplist-title">{{business}}</div>
 		
-		<div class="shoplist">
+		
+		<div class="shoplist" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="1" infinite-scroll-immediate-check="false">
 			<div class="shop-listcontent" v-for="item in buslists" @click="jump(item.restaurant.id)">
 				<div class="shop-every">
 					<div class="shop-img"><img :src="item.restaurant.image_path"></div>
@@ -34,6 +35,11 @@
 									<span>{{item.restaurant.order_lead_time}}分钟</span>
 								</div>
 							</div>
+							<!-- <div class="shop-actives">
+								<ul>
+									<li v-for="iten in actives">{{iten[0].description}}</li>
+								</ul>
+							</div> -->
 						</div>
 					</div>
 				</div>
@@ -45,33 +51,20 @@
 
 <script>
 import axios from 'axios';
-import { Loadmore } from 'mint-ui'; 
+import { InfiniteScroll } from 'mint-ui'; 
 export default {
 	name: "MainSection",
 	data(){
 		return{
 			business: "推荐商家",
 			buslists: [],
+			actives: [],
+			last: [],
 			page: 0
 		}
 	},
 	mounted(){
-		axios.get(`/restapi/shopping/v3/restaurants?latitude=39.90469&longitude=116.407173&offset=${this.page+1}&limit=8&extras[]=activities&extras[]=tags&extra_filters=home&rank_id=e3f3c3f8aceb47f99b78130161d25723&terminal=h1`)
-		.then((response)=> {
-		    console.log(response);
-		    this.buslists = response.data.items;
-		    var l = this.buslists.length;
-		    for(var i=0; i<l; i++){
-		    	this.buslists[i].restaurant.image_path = this.splace(this.buslists[i].restaurant.image_path);
-		    	// if(this.buslists[i].restaurant.delivery_mode.text=="undefine"){
-		    	// 	this.buslists[i].restaurant.delivery_mode.text = null;
-		    	// }
-		    }
-		    window.addEventListener("scroll", this.bomScroll);
-		})
-		.catch(function (response) {
-		    console.log(response);
-		})
+		this.loadNext();
 	},
 	methods :{
 		stu: function  (str,sr,index){
@@ -92,18 +85,38 @@ export default {
 		jump: function(id){
 			this.$router.history.push({name:'shop', params:{fid: id}})
 		},
-		loadBottom() {
-			//...// 加载更多数据
-			//this.allLoaded = true;// 若数据已全部获取完毕
-			this.$refs.loadmore.onBottomLoaded();
+		loadMore() {
+			this.loadNext();
+		},
+		loadNext() {
+			if(this.loading){
+				return;
+			}
+			 this.loading = false;
+			
+			setTimeout(() => {
+				axios.get(`/restapi/shopping/v3/restaurants?latitude=39.90469&longitude=116.407173&offset=${this.page+1}&limit=8&extras[]=activities&extras[]=tags&extra_filters=home&rank_id=e3f3c3f8aceb47f99b78130161d25723&terminal=h1`)
+				.then((response)=> {
+				    //console.log(response);
+				    this.page ++;
+				    this.last = response.data.items;
+				    var l = this.last.length;
+				    for(var i=0; i<l; i++){
+				    	this.last[i].restaurant.image_path = this.splace(this.last[i].restaurant.image_path);
+				    	// if(this.buslists[i].restaurant.delivery_mode.text=="undefine"){
+				    	// 	this.buslists[i].restaurant.delivery_mode.text = null;
+				    	// }
+				    	//this.actives.push(this.buslists[i].restaurant.activities)
+				    	 this.buslists.push(this.last[i])
+				    }
+				   //console.log(this.buslists)
+					//console.log(this.actives)
+				})
+				.catch(function (response) {
+				    console.log(response);
+				})
+			}, 500);
 		}
-		// bomScroll: function(){
-		// 	var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-		// 	var top = scrollTop-10;
-		// 	if(scrollTop > top){
-		// 		this.look();
-		// 	}
-		// }
 	}
 }
 </script>
@@ -149,6 +162,10 @@ export default {
 		color: #666;
 		padding: 0.27rem 0.1rem;
 		font-size: 0.2rem;
+		
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 	.shop-listcontent>.shop-every{
 		display: flex;
@@ -169,6 +186,9 @@ export default {
 	.shop-name, .shop-score, .shop-distance{
 		margin-bottom: 0.1rem;
 	}
+	.shop-name{
+		overflow: hidden;
+	}
 	.shop-score, .shop-score{
 		font-size: 0.2rem;
 	}
@@ -184,9 +204,14 @@ export default {
 		overflow: hidden;
 		white-space: nowrap;
 		text-overflow: ellipsis;
+		display: inline-block;
+		width: 80%;
 	}
 	.shop-distance{
 		display: flex;
 		justify-content: space-between;
 	}
+	/*.shop-actives{
+		background: skyblue;
+	}*/
 </style>

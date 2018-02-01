@@ -16,6 +16,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  MintUI,
   components: { App },
   template: '<App/>'
 })

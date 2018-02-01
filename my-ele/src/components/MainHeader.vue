@@ -38,9 +38,9 @@ export default {
 				geoc.getLocation(r.point, function(rs){
 					var addComp = rs.addressComponents;
 					var mainmap = addComp.district + addComp.city + addComp.street;
-					var map = document.getElementsByClassName("mapspan")[0];
+					var mapp = document.getElementsByClassName("mapspan")[0];
 					// console.log(addComp)
-					map.innerText = mainmap;
+					mapp.innerText = mainmap;
 					//console.log(mainmap)
 				});   
 				
@@ -64,6 +64,10 @@ export default {
 				this.searchBarFixed = false;
 			}
 		}
+	},
+	beforeDestroy() {
+		window.removeEventListener("scroll", this.handleScroll);
+		
 	}
 }
 </script>
