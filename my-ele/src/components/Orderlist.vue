@@ -1,7 +1,7 @@
 <template>
   <div class="order-list">
     <div class="order-top">
-    	<span><</span><span>我的</span>
+    	<span><</span><span>订单</span>
     </div>
     <div class="order-center">
     		<p> <img src="../assets/images/dd.png" /></p>

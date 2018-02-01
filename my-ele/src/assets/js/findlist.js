@@ -27,12 +27,15 @@ export default {
 			var ret = (c.substring(c.length-2)=='eg')? ".jpeg":".png"
 			var result = "https://fuss10.elemecdn.com"+c+ret;
 			return(result);
+		},
+		jump: function(id){
+			this.$router.history.push({name:'shop', params:{fid: id}})
 		}
   },
   mounted(){
  		axios.get("/restapi/member/v1/discover?platform=1&block_index=0&latitude=39.90469&longitude=116.407173")
   	.then((res)=>{
-//			console.log(res);
+			console.log(res);
   			var list1 = res.data[1]; 
   			for(var i=0,l=list1.length;i<l;i++){
   					list1[i].main_pic_hash = this.splace(list1[i].main_pic_hash);
@@ -48,7 +51,7 @@ export default {
   	
   	axios.get("/restapi/shopping/v1/find/recommendation?latitude=39.90469&longitude=116.407173&offset=0&limit=6")
   	.then((res)=>{
-//			console.log(res);
+			console.log(res);
   			var list3 = res.data.items;
   			for(var k=0,l=list3.length;k<l;k++){
   					list3[k].food.image_path = this.splace(list3[k].food.image_path);
