@@ -14,12 +14,7 @@
 
 <script>
 export default {
-  name: 'Orderlist',
-  data () {
-    return {
-     
-    }
-  }
+  name: 'Orderlist'
 }
 </script>
 
@@ -45,6 +40,9 @@ export default {
 	margin-left: 0.5rem;
 }
 .order-top>span:nth-of-type(2){
+	position: absolute;
+	left: 50%;
+	margin-left: -0.32rem;
 	margin-right: 2.8rem;
 }
 .order-center{
