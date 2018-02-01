@@ -20,8 +20,8 @@
    		  		<p>你的口味，我都懂得</p> 
    		  		<div class="rec_list">
    		  			<ul>
-   		  					<li v-for="item in lists3">
-			   		  			<dl>
+   		  					<li v-for="item in lists3" >
+			   		  			<dl @click="jump(item.food.restaurant_id)">
 			   		  				<dt><img :src="item.food.image_path" /></dt>
 			   		  				<dd>{{item.food.name}}</dd>
 			   		  				<dd><span>月售{{item.food.month_sales}}份</span><span>好评率{{item.food.satisfy_rate}}%</span></dd>

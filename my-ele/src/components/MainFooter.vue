@@ -14,7 +14,7 @@
 						<span class="foot">{{discover}}</span>
 					</li>
 				</router-link>
-				<router-link to="/shop" activeClass="foot-this">
+				<router-link to="/Orderlist" activeClass="foot-this">
 					<li>
 						<i class="icon iconfont iconfoot">&#xe606;</i>
 						<span class="foot">{{indent}}</span>
