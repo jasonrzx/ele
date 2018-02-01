@@ -60,6 +60,7 @@ export default {
 		$(".shop-bottom-dc").height(wh-shop_center_h);
 
 		var id = this.$route.params.fid;
+		console.log(id)
 		axios.get(`/restapi/shopping/restaurant/${id}?extras[]=activities&extras[]=albums&extras[]=license&extras[]=identification&extras[]=qualification&terminal=h5&latitude=39.90469&longitude=116.407173`)
 		.then((res)=>{
 			console.log(res);

@@ -36,6 +36,9 @@
                 };
                 .pp3{
                     color : #999;
+                    width:100%; white-space: nowrap;
+                    overflow:hidden;
+                    text-overflow:ellipsis;
                 };
                 .pp4{
                     color : #999;
@@ -163,7 +166,7 @@
                             width:1.3rem; height:1.3rem;
                             margin-right:0.2rem;
                             img{
-                                width:100%; height:100%;
+                                width:1.3rem; height:1.3rem;
                             }
                         }
                         dd{
