@@ -36,7 +36,7 @@
 					<!-- 点餐模块左边区域 -->
 					<div class="shop-bottom-dc-lf">
 						<ul>
-							<li v-for="(data,index) in data_il">{{data.name}}</li>
+							<li v-for="(data,index) in data_il" @click="stairs(index)">{{data.name}}</li>
 						</ul>
 						<!-- 底部固定区域 -->
 						<div class="shop-botton-shop">
@@ -54,18 +54,20 @@
 					</div>
 					<!-- 点餐模块右边区域 -->
 					<div class="shop-bottom-dc-rgh">
-						<p class="shop-rgh-p"><span>{{name}}</span>{{description}}</p>
-						<dl v-for="(data,index) in detail">
-							<dt><img :src="img[index]" /></dt>
-							<dd>
-								<ul>
-									<li class="ul_li1">{{data.name}}</li>
-									<li>{{data.tips}}</li>
-									<li></li>
-									<li class="ul_li4">￥{{data.specfoods[0].price}}<span>+</span></li>
-								</ul>
-							</dd>
-						</dl>
+						<div class="rgh_s" v-for="(act,index) in data_il">
+							<p class="shop-rgh-p"><span>{{data_il[index].name}}</span>{{data_il[index].description}}</p>
+							<dl v-for="(data,ind) in data_il[index].foods">
+								<dt><img :src="img[ind]" /></dt>
+								<dd>
+									<ul>
+										<li class="ul_li1">{{data.name}}</li>
+										<li>{{data.tips}}</li>
+										<li></li>
+										<li class="ul_li4">￥{{data.specfoods[0].price}}<span>+</span></li>
+									</ul>
+								</dd>
+							</dl>
+						</div>
 					</div>
 				</div>
 				<div class="shop-bottom-pj" v-show="flage==1"></div>

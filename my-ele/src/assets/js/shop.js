@@ -46,6 +46,11 @@ export default {
 			var ret = (c.substring(c.length-2)=='eg')? ".jpeg":".png"
 			var result = "https://fuss10.elemecdn.com"+c+ret;
 			return(result);
+		},
+		stairs : function(index){
+			console.log(index)
+			console.log($(".shop-bottom-dc-rgh").scrollTop());
+			console.log($(".shop-rgh-p").eq(index).offset().top);
 		}
 	},
 
@@ -60,36 +65,36 @@ export default {
 		$(".shop-bottom-dc").height(wh-shop_center_h);
 
 		var id = this.$route.params.fid;
-		console.log(id)
 		axios.get(`/restapi/shopping/restaurant/${id}?extras[]=activities&extras[]=albums&extras[]=license&extras[]=identification&extras[]=qualification&terminal=h5&latitude=39.90469&longitude=116.407173`)
 		.then((res)=>{
-			console.log(res);
 			this.list = res.data;
 			this.list1 = res.data.activities;
-			console.log(this.list1);
+			// console.log(this.list1);
 			var ss = res.data.image_path;
 			this.imgs.push(this.splace(ss))
-			console.log(this.imgs)
 		});
 
 
 
-		axios.get(`/restapi/shopping/v2/menu?restaurant_id=${id}`).then((res)=>{
+		axios.get(`/restapi/shopping/v2/menu?restaurant_id=${id}`)
+		.then((res)=>{
+			// console.log(res);
 			this.data_il = res.data;
 			this.detail = res.data[0].foods;
-
 			var ind = this.detail.length;
 			this.name = res.data[0].name;
 			this.description = res.data[0].description;
-
 			var length = res.data[0].foods.length;
-			for(var i=0; i<length; i++){
-				var s = res.data[0].foods[i].image_path;
-				this.img.push(this.splace(s));
+			//获取所有图片
+			for(var x=0; x<length; x++){
+				for(var y=0; y<length; y++){
+					var s = res.data[x].foods[y].image_path;
+					this.img.push(this.splace(s));
+				}
 			}
 		}).catch((err)=>{
-			console.log(err);
+			// console.log(err);
 		});
-
+		console.log(this.img)
 	}
 }
