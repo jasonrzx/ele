@@ -9,16 +9,16 @@
 					<i class="lt">&lt;</i>
 				</router-link>
 				<!--商店logo-->
-				<div class="shop-top-imgbox"><img /></div>
+				<div class="shop-top-imgbox" v-if="list"><img :src="imgs[0]" /></div>
 				<!--商店信息-->
-				<div class="shop-top-p">
+				<div class="shop-top-p" v-if="list">
 					<p class="pp1">
 						<span class="p-sp1">品牌</span>
-						<span class="p-sp2">南街小店</span>
+						<span class="p-sp2">{{list.name}}</span>
 					</p>
-					<p class="pp2"><span class="pf">4.7</span>  月销<span class="xl"></span>单  蜂鸟专送 约<span calss="sj"></span>分钟  距离<span calss="jl"></span>km</p>
-					<p class="pp3">欢迎观临，用餐高峰期请提前下单，谢谢。</p>
-					<p class="pp4"><span class="sd">首单</span>新用户下单立减17元(不与其他活动同享)  <span class="yh">优惠</span></p>
+					<p class="pp2"><span class="pf">{{list.rating}}</span>  月销<span class="xl">{{list.rating_count}}</span>单  蜂鸟专送 约<span calss="sj">{{list.order_lead_time}}</span>分钟  距离<span calss="jl">{{parseInt(list.distance*0.001)}}</span>km</p>
+					<p class="pp3">{{list.promotion_info}}</p>
+					<p class="pp4"><span class="sd">{{list1[0].icon_name}}</span>{{list1[0].description}}<span class="yh">{{list.activities.length}}</span>个优惠</p>
 				</div>
 			</div>
 		</div>
@@ -32,36 +32,44 @@
 			<!-- 底部区域 -->
 			<div class="shop-bottom">
 				<!-- 点餐区域 -->
-				<div class="shop-bottom-dc" v-if="flage==0">
+				<div class="shop-bottom-dc" v-show="flage==0">
 					<!-- 点餐模块左边区域 -->
 					<div class="shop-bottom-dc-lf">
 						<ul>
-							<li v-for="(side,index) in sidebar">{{side}}</li>
+							<li v-for="(data,index) in data_il">{{data.name}}</li>
 						</ul>
 						<!-- 底部固定区域 -->
 						<div class="shop-botton-shop">
-							<span class="shoping"></span>
+							<div>
+								<span class="shoping">
+									<i class="icon iconfont">&#xe698;</i>
+								</span>
+							</div>
 							<div class="ps">
 								<span class="jg">￥</span>
 								<span class="psf">配送费</span>
 							</div>
-							<div class="qs">￥<span class="qs1"></span>配送</div>
+							<div class="qs">￥<span class="qs1">0</span>配送</div>
 						</div>
 					</div>
 					<!-- 点餐模块右边区域 -->
 					<div class="shop-bottom-dc-rgh">
-						<p class="shop-rgh-p"><span>热销</span></p>
-						<dl v-for="">
-							<dt></dt>
-							<dd></dd>
+						<p class="shop-rgh-p"><span>{{name}}</span>{{description}}</p>
+						<dl v-for="(data,index) in detail">
+							<dt><img :src="img[index]" /></dt>
 							<dd>
-								
+								<ul>
+									<li class="ul_li1">{{data.name}}</li>
+									<li>{{data.tips}}</li>
+									<li></li>
+									<li class="ul_li4">￥{{data.specfoods[0].price}}<span>+</span></li>
+								</ul>
 							</dd>
 						</dl>
 					</div>
 				</div>
-				<div class="shop-bottom-pj" v-if="flage==1"></div>
-				<div class="shop-bottom-sj" v-if="flage==2"></div>
+				<div class="shop-bottom-pj" v-show="flage==1"></div>
+				<div class="shop-bottom-sj" v-show="flage==2"></div>
 			</div>
 		</div>
 	</div>

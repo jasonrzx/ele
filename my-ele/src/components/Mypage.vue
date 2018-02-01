@@ -24,8 +24,6 @@
    	  	</li>
    	  </ul>
 
- 
-
    	  <div class="my-location">
    	  	<p>
    	  		<span><i class="icon iconfont icon-dw">&#xe610;</i></span>

@@ -59,9 +59,9 @@ export default {
 			//console.log(scrollTop);
 			var offsetTop = document.getElementsByClassName("shopper")[0].offsetTop;
 			if(scrollTop > offsetTop){
-				this.searchBarFixed = true
+				this.searchBarFixed = true;
 			} else {
-				this.searchBarFixed = false
+				this.searchBarFixed = false;
 			}
 		}
 	}
