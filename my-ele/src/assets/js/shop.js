@@ -48,9 +48,15 @@ export default {
 			return(result);
 		},
 		stairs : function(index){
-			console.log(index)
-			console.log($(".shop-bottom-dc-rgh").scrollTop());
-			console.log($(".shop-rgh-p").eq(index).offset().top);
+			// console.log(index)
+			var Top = $(".shop-bottom-dc-rgh").scrollTop();
+			console.log(parseInt( $(".shop-rgh-p").eq(index).offset().top)); 
+			var st = parseInt( $(".shop-rgh-p").eq(index).offset().top);
+			if(Top != st){
+				$(".shop-bottom-dc-rgh").animate({
+					scrollTop : st+"px"
+				});
+			}
 		}
 	},
 
@@ -64,12 +70,12 @@ export default {
 		shop_bottom.css({"height":wh-shop_center_h});
 		$(".shop-bottom-dc").height(wh-shop_center_h);
 
+
 		var id = this.$route.params.fid;
 		axios.get(`/restapi/shopping/restaurant/${id}?extras[]=activities&extras[]=albums&extras[]=license&extras[]=identification&extras[]=qualification&terminal=h5&latitude=39.90469&longitude=116.407173`)
 		.then((res)=>{
 			this.list = res.data;
 			this.list1 = res.data.activities;
-			// console.log(this.list1);
 			var ss = res.data.image_path;
 			this.imgs.push(this.splace(ss))
 		});
@@ -78,7 +84,6 @@ export default {
 
 		axios.get(`/restapi/shopping/v2/menu?restaurant_id=${id}`)
 		.then((res)=>{
-			// console.log(res);
 			this.data_il = res.data;
 			this.detail = res.data[0].foods;
 			var ind = this.detail.length;
@@ -93,8 +98,7 @@ export default {
 				}
 			}
 		}).catch((err)=>{
-			// console.log(err);
+			console.log(err);
 		});
-		console.log(this.img)
 	}
 }
