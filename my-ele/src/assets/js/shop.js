@@ -7,6 +7,7 @@ export default {
 	name : "shop",
 	data : function(){
 		return {
+			masks : false,
 			flage : "0",
 			detail : null,
 			name : "",
@@ -25,6 +26,11 @@ export default {
 			list : null,
 			list1 : null,
 			imgs : [],
+			//点击商品储存商品信息
+			goods_img : "",
+			goods_text : "",
+			//显示减少商品的减号符
+			dele : false,
 		}
 	},
 
@@ -32,6 +38,8 @@ export default {
 		tabs: function(index){
 			this.flage = index;
 		},
+
+		//修改图片路径的方法
   		 stu: function  (str,sr,index){
 				var nstr = "";
 				var s1 = str.substring(0,index);
@@ -47,16 +55,51 @@ export default {
 			var result = "https://fuss10.elemecdn.com"+c+ret;
 			return(result);
 		},
+
+		//左侧楼梯效果
 		stairs : function(index){
 			// console.log(index)
 			var Top = $(".shop-bottom-dc-rgh").scrollTop();
-			console.log(parseInt( $(".shop-rgh-p").eq(index).offset().top)); 
+			// console.log(parseInt( $(".shop-rgh-p").eq(index).offset().top)); 
 			var st = parseInt( $(".shop-rgh-p").eq(index).offset().top);
 			if(Top != st){
 				$(".shop-bottom-dc-rgh").animate({
 					scrollTop : st+"px"
 				});
 			}
+		},
+		//点击显示遮罩层
+		mask : function(ind){
+			this.masks = !this.masks;
+			var dl = $(".dl");
+			// console.log(dl.eq(ind).find("dt>img")[0].currentSrc)
+			// console.log(dl.eq(ind)[0].childNodes)
+			this.goods_img = dl.eq(ind)[0].childNodes;
+			console.log(ind,this.goods_img)
+			// console.log(this.goods);
+			console.log(dl.eq(ind).find("dd>ul>li"));
+			this.goods_text = dl.eq(ind).find("dd>ul>li")
+		},
+		//隐藏遮罩层
+		hide : function(){
+			this.masks = false;
+		},
+
+		//添加商品到购物车
+		add_goods : function(ind){
+			$(".delete_goods").eq(ind).css({"display":"block"});
+			var s = $(".amount").eq(ind).html();
+			$(".amount").eq(ind).css({"display":"block"}).html(++s);
+			console.log("asdf")
+		},
+		//删除商品
+		delete_goods : function(ind){
+			var s = $(".amount").eq(ind).html();
+			if( s = 1){
+				$(".delete_goods").eq(ind).css({"display":"none"});
+				$(".amount").eq(ind).css({"display":"none"})
+			}
+			$(".amount").eq(ind).css({"display":"block"}).html(s-1);
 		}
 	},
 
