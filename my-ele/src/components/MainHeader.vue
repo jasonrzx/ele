@@ -8,13 +8,16 @@
 				</a>
 			</div>
 		</div>
-		<div class="shopper" :class="searchBarFixed == true ? 'isFixed' :''">
+		<div class="shopper" :class="searchBarFixed == true ? 'isFixed' :''" @click="Active()">
 			<div class="shop">
 				<a>
 					<i class="icon iconfont iconmain">&#xe6ac;</i>
 					<span>{{shopper}}</span>
 				</a>
 			</div>
+		</div>
+		<div class="active">
+			<img class="activeimg" src="https://fuss10.elemecdn.com/0/cf/e16c1687a4ea84674d5b531623934png.png?imageMogr/format/webp/thumbnail/!750x210r/gravity/Center/crop/750x210/">
 		</div>
 	</header>
 </template>
@@ -63,11 +66,13 @@ export default {
 			} else {
 				this.searchBarFixed = false;
 			}
+		},
+		Active() {
+			this.$router.history.push({name:'MainSearch', params:{}})
 		}
 	},
 	beforeDestroy() {
 		window.removeEventListener("scroll", this.handleScroll);
-		
 	}
 }
 </script>
@@ -132,5 +137,12 @@ export default {
 		display: flex;
 		justify-content: space-between;
 		position: relative;
+	}
+	.active{
+		background: #fff;
+		text-align: center;
+	}
+	.activeimg{
+		width: 100%;
 	}
 </style>
