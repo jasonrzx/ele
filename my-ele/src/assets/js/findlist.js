@@ -30,7 +30,10 @@ export default {
 		},
 		jump: function(id){
 			this.$router.history.push({name:'shop', params:{fid: id}})
-		}
+		},
+    jpback() {
+      this.$router.history.push({name:'MainHome', params:{}})
+    }
   },
   mounted(){
  		axios.get("/restapi/member/v1/discover?platform=1&block_index=0&latitude=39.90469&longitude=116.407173")

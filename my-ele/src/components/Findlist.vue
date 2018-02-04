@@ -1,6 +1,6 @@
 <template>
   <div class="find_list">
-			  <div class="n_top"><span><</span><span>发现</span></div>
+			  <div class="n_top"><span @click="jpback()"><</span><span>发现</span></div>
 		   	<div class="f_top">
 			   		<ul>
 			   			<li v-for="item in lists1">

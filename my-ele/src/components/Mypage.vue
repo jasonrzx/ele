@@ -1,6 +1,6 @@
 <template>
   <div class="my-page">
-   	  <div class="n-top"><span><</span><span>我的</span></div>
+   	  <div class="n-top"><span @click="jpback()"><</span><span>我的</span></div>
    	  <div class='nav-top'>
    	  		<dl>
 	   	  			<dt>
@@ -79,7 +79,12 @@
 
 <script>
 export default {
-  name: 'Mypage'
+  name: 'Mypage',
+  methods: {
+      jpback() {
+         this.$router.history.push({name:'MainHome', params:{}})
+      }
+   }  
 }
 </script>
 

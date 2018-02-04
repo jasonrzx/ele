@@ -1,7 +1,7 @@
 <template>
 	<div id="mainsearch">
 		<div class="search">
-			<div class="back"><span><</span></div>
+			<div class="back" @click="jpback()"><span><</span></div>
 			<form class="searchall">
 				<input class="searchshop" type="text" placeholder="输入商家、商品名称">
 			</form>
@@ -17,8 +17,10 @@ export default {
 			
 		}
 	},
-	mounted(){
-
+	methods: {
+		jpback() {
+			this.$router.history.push({name:'MainHome', params:{}})
+		}
 	}	
 }
 </script>
