@@ -23,7 +23,7 @@ export default new Router({
       component: Findlist
     },
     {
-      path: '/shop',
+      path: '/shop/:fid',
       name: 'shop',
       component: shop
     },
