@@ -35,7 +35,7 @@ export default {
   mounted(){
  		axios.get("/restapi/member/v1/discover?platform=1&block_index=0&latitude=39.90469&longitude=116.407173")
   	.then((res)=>{
-			console.log(res);
+			//console.log(res);
   			var list1 = res.data[1]; 
   			for(var i=0,l=list1.length;i<l;i++){
   					list1[i].main_pic_hash = this.splace(list1[i].main_pic_hash);
@@ -51,7 +51,7 @@ export default {
   	
   	axios.get("/restapi/shopping/v1/find/recommendation?latitude=39.90469&longitude=116.407173&offset=0&limit=6")
   	.then((res)=>{
-			console.log(res);
+			//console.log(res);
   			var list3 = res.data.items;
   			for(var k=0,l=list3.length;k<l;k++){
   					list3[k].food.image_path = this.splace(list3[k].food.image_path);
@@ -69,7 +69,7 @@ export default {
   	
   	axios.get("/restapi/member/gifts/suggest")
   	.then((res)=>{
-  		console.log(res);	
+  		//console.log(res);	
 		var list4 = res.data; 
 		var l=list4.length;
 		if(l>=3){
@@ -80,7 +80,7 @@ export default {
 			list4.length=3;	
 		}	
 		this.lists4 = list4;
-		console.log(this.lists4)
+		//console.log(this.lists4)
   	})
   	
   }

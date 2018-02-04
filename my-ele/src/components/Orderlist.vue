@@ -44,6 +44,7 @@ export default {
 	left: 50%;
 	margin-left: -0.32rem;
 	margin-right: 2.8rem;
+	white-space: nowrap;
 }
 .order-center{
 	width: 100%;

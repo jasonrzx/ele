@@ -26,6 +26,7 @@
 	left: 50%;
 	margin-left: -0.32rem;
 	margin-right: 2.8rem;
+	white-space: nowrap;
 }
 .f_top{
 	width: 100%;

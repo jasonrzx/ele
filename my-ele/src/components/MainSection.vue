@@ -99,7 +99,7 @@ export default {
 			setTimeout(() => {
 				axios.get(`/restapi/shopping/v3/restaurants?latitude=39.90469&longitude=116.407173&offset=${this.page+1}&limit=8&extras[]=activities&extras[]=tags&extra_filters=home&rank_id=e3f3c3f8aceb47f99b78130161d25723&terminal=h1`)
 				.then((response)=> {
-				    console.log(response);
+				    //console.log(response);
 				    this.page ++;
 				    this.last = response.data.items;
 				    var l = this.last.length;
