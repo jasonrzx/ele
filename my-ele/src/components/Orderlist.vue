@@ -1,7 +1,7 @@
 <template>
   <div class="order-list">
     <div class="order-top">
-    	<span><</span><span>订单</span>
+    	<span @click="jpback()"><</span><span>订单</span>
     </div>
     <div class="order-center">
     		<p> <img src="../assets/images/dd.png" /></p>
@@ -14,7 +14,12 @@
 
 <script>
 export default {
-  name: 'Orderlist'
+  name: 'Orderlist',
+  methods: {
+		jpback() {
+			this.$router.history.push({name:'MainHome', params:{}})
+		}
+	}	
 }
 </script>
 
@@ -44,6 +49,7 @@ export default {
 	left: 50%;
 	margin-left: -0.32rem;
 	margin-right: 2.8rem;
+	white-space: nowrap;
 }
 .order-center{
 	width: 100%;

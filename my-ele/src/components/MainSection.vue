@@ -15,6 +15,7 @@
 							<div class="shop-name">
 								<span class="shop-brand" v-if="item.restaurant.is_premium">品牌</span>
 								<span class="shoplist-name">{{item.restaurant.name}}</span>
+								<!-- <span>{{name}}</span> -->
 							</div>
 							<div class="shop-score">
 								<div>
@@ -60,6 +61,7 @@ export default {
 			buslists: [],
 			actives: [],
 			last: [],
+			// name: [],
 			page: 0
 		}
 	},
@@ -108,8 +110,16 @@ export default {
 				    	// }
 				    	//this.actives.push(this.buslists[i].restaurant.activities)
 				    	 this.buslists.push(this.last[i])
+				    	 // var namepp = this.buslists[i].restaurant.supports[0].icon_name;
+				    	 // if(namepp != "undefine"){
+				    	 // 	this.name = namepp;
+				    	 // }else{
+				    	 // 	this.name = "";
+				    	 // }
 				    }
-				   //console.log(this.buslists)
+				    
+
+				  // console.log(this.buslists)
 					//console.log(this.actives)
 				})
 				.catch(function (response) {
@@ -205,7 +215,7 @@ export default {
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		display: inline-block;
-		width: 80%;
+		width: 70%;
 	}
 	.shop-distance{
 		display: flex;

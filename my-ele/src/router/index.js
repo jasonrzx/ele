@@ -5,13 +5,14 @@ import MainHome from '@/components/MainHome'
 import shop from '@/components/shop'
 import Mypage from '@/components/Mypage'
 import Orderlist from '@/components/Orderlist'
+import MainSearch from '@/components/MainSearch'
 
 Vue.use(Router)
 
 export default new Router({
 	mode : "hash",
 	 routes: [
-	{
+	  {
       path: '/',
       name: 'MainHome',
       component: MainHome
@@ -35,6 +36,11 @@ export default new Router({
     	path: '/Orderlist',
      	name: 'Orderlist',
       	component: Orderlist
+    },
+    {
+      path: '/MainSearch',
+      name: 'MainSearch',
+        component: MainSearch
     },
   ]
 })
